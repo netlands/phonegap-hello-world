@@ -1,230 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Simple Particle viewer">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Particle Viewer</title>
-        <script src="http://cdn.jsdelivr.net/sparkjs/0.5.10/spark.min.js" type="text/javascript" charset="utf-8"></script>
-        <!-- Material Design Lite -->
-        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
-        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.cyan-deep_orange.min.css" />
-        <!-- Material Design icon font -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
-        <style>
-            body {font-family: Roboto;
-                overflow-y: hidden;}
-
-            button#spark-login-button.spark-login-button {
-                background: #46B6AC;
-                position: absolute;
-                top: 10%;
-                left: 50%;
-                margin-left: -75px;
-            }
-            button#spark-login-form-button {
-                background: darkgray;
-            }
-            form#spark-login-form.spark-login-modal.current {
-
-                background: #46B6AC;
-
-            }
-            kbd {
-                padding: .1em .6em;
-                border: 1px solid #ccc;
-                font-size: 11px;
-                font-family: Arial,Helvetica,sans-serif;
-                background-color: #f7f7f7;
-                color: #333;
-                -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-                -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-                box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-                border-radius: 3px;
-                display: inline-block;
-                margin: 0 .1em;
-                text-shadow: 0 1px 0 #fff;
-                line-height: 1.4;
-                white-space: nowrap;
-            }
-            .mdl-layout-title {
-                margin-left: -50px;
-            }
-            #data {margin-top: 10px; margin-bottom: 20px;}
-        </style>
-        <script>
-            var COREID = "35001a001747343337363432";
-            function testChrome(){
-                // please note,
-                // that IE11 now returns undefined again for window.chrome
-                // and new Opera 30 outputs true for window.chrome
-                // so use the below updated condition
-                var isChromium = window.chrome,
-                    vendorName = window.navigator.vendor,
-                    isOpera = window.navigator.userAgent.indexOf("OPR") > -1;
-                if(isChromium !== null && isChromium !== undefined && vendorName === "Google Inc." && isOpera == false) {
-                    // is Google chrome
-                } else {
-                    // not Google chrome
-                    document.getElementById("debug").style.display = "none";
-                }
-            }
-        </script>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,  target-densitydpi=device-dpi" />
+        
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>RFduino LED Button</title>
     </head>
-    <body onload="testChrome()">
-
-        <div id="spark-login"></div>
-        <div id="main" style="display: none;">
-            <!-- Always shows a header, even in smaller screens. -->
-            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-                <header class="mdl-layout__header">
-                    <div class="mdl-layout__header-row">
-                        <!-- Title -->
-                        <span class="mdl-layout-title">Switch</span>
-                        <!-- Add spacer, to align navigation to the right -->
-                        <div class="mdl-layout-spacer"></div>
-                        <!-- Navigation. We hide it in small screens. -->
-                        <nav class="mdl-navigation mdl-layout--large-screen-only">
-                            <a class="mdl-navigation__link" href="https://dashboard.particle.io/user/logs">Dashboard</a>
-                            <a class="mdl-navigation__link" href="https://build.particle.io/build/">Build</a>
-                        </nav>
-                    </div>
-                </header>
-                <!--div class="mdl-layout__drawer">
-<span class="mdl-layout-title">Switch</span>
-<nav class="mdl-navigation">
-<a class="mdl-navigation__link" href="">Link</a>
-<a class="mdl-navigation__link" href="">Link</a>
-</nav>
-</div-->
-                <main class="mdl-layout__content">
-                    <div class="page-content">
-                        <!-- Square card -->
-                        <div class="demo-card-square mdl-card">
-                            <div class="mdl-card__supporting-text">
-                                <div id="switch">
-                                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="on-off-switch">
-                                        <input type="checkbox" id="on-off-switch" class="mdl-switch__input" onchange="Switch(this)" />
-                                        <span class="mdl-switch__label">Light</span>
-                                    </label>
-                                </div>
-                                <div id="data">
-                                    <div><span class="label">RELATIVE HUMIDITY:</span> <b><span id="RH"></span>%</b><br /><span class="label">TEMPERATURE:</span> <b><span id="TEMP"></span>&deg;C</b></div>
-                                </div>
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="update()">Update Now</a>
-                            </div>
-                            <div id="debug" class="mdl-card__actions mdl-card--border">
-                                Open the console to see actual output.<br />
-                                (Windows: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>)
-                            </div>
-                        </div>
-                    </div>
-                </main>
+    <body>
+        <div class="app">
+            <h1>RFduino LED Button</h1>
+            <div id="mainPage">
+                <ul id="deviceList">                    
+                </ul>
+                <button id="refreshButton">Refresh</button>
             </div>
+            <div id="detailPage">
+                <div id="buttonState">Button Released</div>
+                <div id="ledButton">Hold for LED</div>
+                <button id="disconnectButton">Disconnect</button>
+            </div>            
         </div>
-
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            // spark.on('login', function() {
-            sparkLogin(function() {
-
-                document.getElementById("spark-login").style.visibility = "hidden";
-                document.getElementById("spark-login").style.display = "none";
-                document.getElementById("main").style.display = "inline";
-                // fill in fields
-                update();
-                getState();
-                console.log("I've just logged in. Now I'll try to subscribe to all events.");
-                /*
-        //Get all events
-        spark.getEventStream(false, false, function(data) {
-        console.log("Event: " + JSON.stringify(data));
-        });
-*/
-                //Get your devices events
-                spark.getEventStream(false, 'mine', function(data) {
-                    console.log("Event: " + JSON.stringify(data));
-                    var t = JSON.parse(JSON.stringify(data));
-                    if (t['name'] == "humidity") {
-                        document.getElementById("RH").innerHTML = t['data']; }
-                    if (t['name'] == "temperature") {
-                        document.getElementById("TEMP").innerHTML = t['data']; }
-                    if (t['name'] == "switch") {
-                        getState(); }
-                });
-                /*
-        //Get "test" event for specific core
-        spark.getEventStream('test', 'CORE_ID', function(data) {
-        console.log("Event: " + JSON.stringify(data));
-        });
-*/
-
-            });
-
-            // Login
-            // use with spark.on('login', function() { ... });
-            //spark.login({ username: 'user@domain.com', password: '******'});
-            //spark.login({ accessToken: '012345' });
-
+            app.initialize();
         </script>
-        <script type="text/javascript">
-            function switchOn() {
-                spark.callFunction(COREID,'Switch', 'ON', function(err, data){if (err) {
-                    console.log('An error occurred:', err);
-                } else {
-                    console.log('Result:', JSON.parse(JSON.stringify(data))['return_value']);
-                }
-                                                                             });
-                console.log("ON button clicked");
-            }
-            function switchOff() {
-                spark.callFunction(COREID,'Switch', 'OFF', function(err, data){if (err) {
-                    console.log('An error occurred:', err);
-                } else {
-                    console.log('Result:', JSON.parse(JSON.stringify(data))['return_value']);
-                }
-                                                                              });
-                console.log("OFF button clicked");
-            }
-            function Switch(element){
-                element.checked ? switchOn() : switchOff();    
-            }
-            function update(){
-                spark.getVariable(COREID, 'temperature', function(err, data) {
-                    if (err) {
-                        console.log('An error occurred while getting variable:', err);
-                    } else {
-                        console.log('Varible retrieved successfully:', data);
-                        document.getElementById("TEMP").innerHTML = JSON.parse(JSON.stringify(data))['result'];
-                    }
-                });
-                spark.getVariable(COREID, 'humidity', function(err, data) {
-                    if (err) {
-                        console.log('An error occurred while getting variable:', err);
-                    } else {
-                        console.log('Varible retrieved successfully:', data);
-                        document.getElementById("RH").innerHTML = JSON.parse(JSON.stringify(data))['result'];
-                    }
-                });
-                getState();
-            }
-            function getState(){
-                spark.callFunction(COREID,'Status', '', function(err, data){if (err) {
-                    console.log('An error occurred:', err);
-                } else {
-                    if (JSON.parse(JSON.stringify(data))['return_value'] == 0) {
-                        if (document.getElementById("on-off-switch").checked==true) {document.getElementById("on-off-switch").click();}
-                        console.log('Pin LOW');
-                    }
-                    if (JSON.parse(JSON.stringify(data))['return_value'] == 1) {
-                        if (document.getElementById("on-off-switch").checked==false) {document.getElementById("on-off-switch").click();}
-                        console.log('Pin HIGH');
-                    }
-                }
-                                                                           });
-            }
-        </script>
-
     </body>
 </html>
