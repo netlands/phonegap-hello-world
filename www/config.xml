@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.netlands.ble"
+        id        = "com.netlands.rfduino"
         version   = "1.0.0">
 
-    <name>Bluetooth LE Test</name>
+    <name>RFduino Bluetooth LE Test</name>
 
     <description>
-        Bluetooth LE connection text fro RF Duino
+        Bluetooth LE connection test for RFduino (www.rfduino.com)
     </description>
 
     <author href="http://netlands.com" email="support@netlands.com">
@@ -45,7 +45,7 @@
     <preference name="StatusBarBackgroundColor" value="#0097A7" />
     <!-- remove menu button -->
     <preference name="android-minSdkVersion" value="14" />
-    <preference name="android-targetSdkVersion" value="21" />
+    <preference name="android-targetSdkVersion" value="19" />
 
     <preference name="phonegap-version" value="cli-5.2.0" />
 
@@ -72,7 +72,7 @@
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <!-- Third party plugins -->
 	<gap:plugin name="cordova-plugin-statusbar" source="npm" />
-	<gap:plugin name="com.megster.cordova.rfduino" source="npm" />
+	<gap:plugin name="com.megster.cordova.rfduino" source="npm" version="0.0.2" />
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--
         <gap:plugin name="phonegap-plugin-barcodescanner" source="npm" version="4.0.2" />
