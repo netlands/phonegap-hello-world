@@ -13,15 +13,21 @@
         <title>RFduino Temp</title>
     </head>
     <body>
+	<script>
+            function onDeviceReady() {
+				window.plugins.insomnia.keepAwake();
+            }
+	</script>
+
         <div class="app">
             <h1>RFduino Temp</h1>
             <div id="mainPage">
                 <ul id="deviceList">                    
                 </ul>
                 <button id="refreshButton">Refresh</button>
-            <br />
-                <button onclick="window.plugins.insomnia.keepAwake()">keep awake</button> &nbsp; 
-                <button onclick="window.plugins.insomnia.allowSleepAgain()">allow sleep again</button>
+
+                <!-- button onclick="window.plugins.insomnia.keepAwake()">keep awake</button> &nbsp; 
+                <button onclick="window.plugins.insomnia.allowSleepAgain()">allow sleep again</button-->
             </div>
             <div id="detailPage">
                 <span id="tempCelsius"></span>&nbsp;&deg;C<br/>
