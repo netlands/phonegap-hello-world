@@ -111,8 +111,8 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         refreshButton.addEventListener('touchstart', this.refreshDeviceList, false);
-        // ledButton.addEventListener('touchstart', this.sendData, false);
-        // ledButton.addEventListener('touchend', this.sendData, false);
+        ledButton.addEventListener('touchstart', this.sendData, false);
+        ledButton.addEventListener('touchend', this.sendData, false);
         disconnectButton.addEventListener('touchstart', this.disconnect, false);
         deviceList.addEventListener('touchstart', this.connect, false); // assume not scrolling
     },
@@ -140,7 +140,7 @@ var app = {
                 // subscribe for incoming data
                 ble.startNotification(deviceId, rfduino.serviceUUID, rfduino.receiveCharacteristic, app.onData, app.onError);
                 disconnectButton.dataset.deviceId = deviceId;
-                // ledButton.dataset.deviceId = deviceId;
+                ledButton.dataset.deviceId = deviceId;
                 app.showDetailPage();
             };
 
