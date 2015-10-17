@@ -21,6 +21,7 @@
 var arrayBufferToFloat = function (ab) {
     var a = new Float32Array(ab);
     return a[0];
+};
 
 var arrayBufferToInt = function (ab) {
     var a = new Uint8Array(ab);
