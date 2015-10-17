@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /* global mainPage, deviceList, refreshButton */
-/* global detailPage, buttonState, ledButton, disconnectButton */
+/* global detailPage, buttonState, ledButton, tempFahrenheit, tempCelsius, disconnectButton */
 /* global ble, cordova  */
 /* jshint browser: true , devel: true*/
 'use strict';
@@ -144,12 +144,18 @@ var app = {
     },
     onData: function(data) { // data received from rfduino
         console.log(data);
-        var buttonValue = arrayBufferToInt(data);
+        var celsius = arrayBufferToFloat(data),
+            fahrenheit = celsius * 1.8 + 32;
+
+        tempCelsius.innerHTML = celsius.toFixed(2);
+        tempFahrenheit.innerHTML = fahrenheit.toFixed(2);
+
+        /* var buttonValue = arrayBufferToInt(data);
         if (buttonValue === 1) {
             buttonState.innerHTML = "Button Pressed";
         } else {
             buttonState.innerHTML = "Button Released";
-        }
+        } */
     },
     sendData: function(event) { // send data to rfduino
 
