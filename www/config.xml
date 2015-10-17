@@ -72,7 +72,8 @@
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <!-- Third party plugins -->
 	<gap:plugin name="cordova-plugin-statusbar" source="npm" />
-	<gap:plugin name="com.megster.cordova.rfduino" source="npm" />
+	<!-- gap:plugin name="com.megster.cordova.rfduino" source="npm" /-->
+	<gap:plugin name="cordova-plugin-ble-central" source="npm" />
 	<gap:plugin name="cordova-plugin-insomnia" source="npm" />
 	<!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--

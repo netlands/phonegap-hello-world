@@ -3,36 +3,23 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,  target-densitydpi=device-dpi" />
         
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <script type="text/javascript" src="cordova.js"></script>
-        <title>RFduino Temp</title>
+        <title>RFduino LED Button</title>
     </head>
     <body>
-	<script>
-            function onDeviceReady() {
-				window.plugins.insomnia.keepAwake();
-            }
-	</script>
-
         <div class="app">
-            <h1>RFduino Temp</h1>
+            <h1>RFduino LED Button</h1>
             <div id="mainPage">
                 <ul id="deviceList">                    
                 </ul>
                 <button id="refreshButton">Refresh</button>
-
-                <!-- button onclick="window.plugins.insomnia.keepAwake()">keep awake</button> &nbsp; 
-                <button onclick="window.plugins.insomnia.allowSleepAgain()">allow sleep again</button-->
             </div>
             <div id="detailPage">
-                <span id="tempCelsius"></span>&nbsp;&deg;C<br/>
-                <span id="tempFahrenheit"></span>&nbsp;&deg;F<br/>
-                <button id="closeButton">Close</button>
+                <div id="buttonState">Button Released</div>
+                <div id="ledButton">Hold for LED</div>
+                <button id="disconnectButton">Disconnect</button>
             </div>            
         </div>
         <script type="text/javascript" src="cordova.js"></script>
