@@ -36,10 +36,9 @@
                     </button>
 
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                        <li class="mdl-menu__item" onClick="alert('Yay!')"><i class="material-icons menu-icon">file_download</i> Download Update</li>
-                        <li disabled class="mdl-menu__item"><i class="material-icons menu-icon">vpn_key</i> Add Key</li>
+                        <li class="mdl-menu__item" onClick="getUpdate()"><i class="material-icons menu-icon">file_download</i> Download Update</li>
                         <li class="mdl-menu__item" onClick="location.reload()"><i class="material-icons menu-icon">exit_to_app</i> Logout</li>
-                        <li class="mdl-menu__item" onClick="navigator.app.exitApp()"><i class="material-icons menu-icon">power_settings_new</i> Exit</li>
+                        <li disabled class="mdl-menu__item" onClick="navigator.app.exitApp()"><i class="material-icons menu-icon">power_settings_new</i> Exit</li>
                     </ul>
                     <!-- Navigation. We hide it in small screens. -->
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
@@ -95,10 +94,24 @@
             if (platformId == 'ios') {
                 Array.prototype.filter.call(document.getElementsByClassName('mdl-layout__obfuscator'), function (testElement) {
                     testElement.setAttribute("style", "visibility: hidden");
+                    testElement.setAttribute("style", "background-color: rgba(0, 0, 0, 0.498039)");
                 });
             }
             $("#drawer").toggleClass("is-visible", false);
             alert(element.id);
+        }
+
+        function getUpdate() {
+            if (platformId.toUpperCase() === 'IOS') {
+                var url = "https://build.phonegap.com/apps/1659065/download/ios";
+                window.open(url, '_system');
+            } else if (platformId.toUpperCase() === 'ANDROID') {
+                var url = "https://build.phonegap.com/apps/1659065/download/android";
+                window.open(url);
+            } else {
+                var url = "https://build.phonegap.com/apps/1659065/share";
+                window.open(url);
+            }
         }
     </script>
 </body>
