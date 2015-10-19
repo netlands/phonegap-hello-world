@@ -46,6 +46,20 @@ body {
     /* margin-left: -50px; */
 }
 
+.mdl-navigation__link {
+    cursor: pointer;
+}
+
+.mdl-navigation__link[disabled] {
+    color: rgba(0, 0, 0, .26) !important;
+    cursor: default;
+    background-color: transparent;
+}
+
+.mdl-navigation__link[disabled]:hover {
+    background-color: transparent !important;
+}
+
 i.material-icons.menu-icon {
     margin-right: 4px;
     vertical-align: middle;

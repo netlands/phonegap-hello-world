@@ -43,18 +43,18 @@
                     </ul>
                     <!-- Navigation. We hide it in small screens. -->
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <a class="mdl-navigation__link" href="JavaScript:void(0)">Item 1</a>
-                        <a class="mdl-navigation__link" href="JavaScript:void(0)">Item 2</a>
-                        <a class="mdl-navigation__link" href="JavaScript:void(0)">Item 3</a>
+                        <span class="mdl-navigation__link" id="1a" onclick="listItemClicked(this)">Item 1</span>
+                        <span class="mdl-navigation__link" id="2a" onclick="listItemClicked(this)">Item 2</span>
+                        <span class="mdl-navigation__link" id="3a" onclick="listItemClicked(this)">Item 3</span>
                     </nav>
                 </div>
             </header>
             <div id="drawer" class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Select item</span>
                 <nav id="device-list" class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="JavaScript:void(0)">Item 1</a>
-                    <a class="mdl-navigation__link" href="JavaScript:void(0)">Item 2</a>
-                    <a class="mdl-navigation__link" href="JavaScript:void(0)">Item 3</a>
+                    <span class="mdl-navigation__link" id="1b" onclick="listItemClicked(this)">Item 1</span>
+                    <span class="mdl-navigation__link" id="2b" onclick="listItemClicked(this)">Item 2</span>
+                    <span class="mdl-navigation__link" disabled id="3b">Item 3</span>
                 </nav>
             </div>
             <main class="mdl-layout__content">
@@ -89,6 +89,16 @@
 
             });
         });
+
+        function listItemClicked(element) {
+            alert(element.id);
+            // for iOS app only
+            if (platformId == 'ios') {
+                Array.prototype.filter.call(document.getElementsByClassName('mdl-layout__obfuscator'), function (testElement) {
+                    testElement.setAttribute("style", "visibility: hidden");
+                });
+            }
+        }
     </script>
 </body>
 
