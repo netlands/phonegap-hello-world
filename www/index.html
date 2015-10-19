@@ -54,7 +54,7 @@
                 <nav id="device-list" class="mdl-navigation">
                     <span class="mdl-navigation__link" id="1b" onclick="listItemClicked(this)">Item 1</span>
                     <span class="mdl-navigation__link" id="2b" onclick="listItemClicked(this)">Item 2</span>
-                    <span class="mdl-navigation__link" disabled id="3b">Item 3</span>
+                    <span class="mdl-navigation__link" id="3b" disabled>Item 3</span>
                 </nav>
             </div>
             <main class="mdl-layout__content">
@@ -91,13 +91,14 @@
         });
 
         function listItemClicked(element) {
-            alert(element.id);
             // for iOS app only
             if (platformId == 'ios') {
                 Array.prototype.filter.call(document.getElementsByClassName('mdl-layout__obfuscator'), function (testElement) {
                     testElement.setAttribute("style", "visibility: hidden");
                 });
             }
+            $("#drawer").toggleClass("is-visible", false);
+            alert(element.id);
         }
     </script>
 </body>
