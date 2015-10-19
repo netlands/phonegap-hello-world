@@ -1,2 +1,8 @@
-platforms
-plugins
+# OS X
+.DS_Store
+# iOS
+*.ipa
+# Android
+*.apk
+# Windows
+*.xap
