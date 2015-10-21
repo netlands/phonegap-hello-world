@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="https://cordova.apache.org/favicon.ico" type="image/x-icon">
     <title>Hello World!</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- Material Design Lite -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.cyan-pink.min.css" />
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <style>
 
     </style>
@@ -42,23 +42,22 @@
                     </ul>
                     <!-- Navigation. We hide it in small screens. -->
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <span class="mdl-navigation__link" id="1a" onclick="listItemClicked(this)">Item 1</span>
-                        <span class="mdl-navigation__link" id="2a" onclick="listItemClicked(this)">Item 2</span>
-                        <span class="mdl-navigation__link" id="3a" onclick="listItemClicked(this)">Item 3</span>
+                        <a href="#" class="mdl-navigation__link" id="1a" onclick="listItemClicked(this);return false;">Item 1</a>
+                        <a href="#" class="mdl-navigation__link" id="2a" onclick="listItemClicked(this);return false;">Item 2</a>
+                        <a href="#" class="mdl-navigation__link" id="3a" onclick="listItemClicked(this);return false;">Item 3</a>
                     </nav>
                 </div>
             </header>
             <div id="drawer" class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Select item</span>
                 <nav id="device-list" class="mdl-navigation">
-                    <span class="mdl-navigation__link" id="1b" onclick="listItemClicked(this)">Item 1</span>
-                    <span class="mdl-navigation__link" id="2b" onclick="listItemClicked(this)">Item 2</span>
-                    <span class="mdl-navigation__link" id="3b" disabled>Item 3</span>
+                    <a href="#" class="mdl-navigation__link" id="1b" onclick="listItemClicked(this);return false;">Item 1</a>
+                    <a href="#" class="mdl-navigation__link" id="2b" onclick="listItemClicked(this);return false;">Item 2</a>
+                    <a href="#" class="mdl-navigation__link" id="3b" disabled>Item 3</a>
                 </nav>
             </div>
             <main class="mdl-layout__content">
                 <div class="page-content">
-                    <!-- Square card -->
                     <div id="main-data" class="content-box">
                         <p>Hello world! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eleifend eu eros id lacinia. Donec ac dignissim nisi. Suspendisse scelerisque at neque sed scelerisque. Morbi convallis ornare nibh, nec interdum nisi consequat quis.</p>
 
@@ -88,18 +87,6 @@
 
             });
         });
-
-        function listItemClicked(element) {
-            // for iOS app only
-            if (platformId == 'ios') {
-                Array.prototype.filter.call(document.getElementsByClassName('mdl-layout__obfuscator'), function (testElement) {
-                    testElement.setAttribute("style", "visibility: hidden");
-                    testElement.setAttribute("style", "background-color: rgba(0, 0, 0, 0.498039)");
-                });
-            }
-            $("#drawer").toggleClass("is-visible", false);
-            alert(element.id);
-        }
 
         function getUpdate() {
             if (platformId.toUpperCase() === 'IOS') {

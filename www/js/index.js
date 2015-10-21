@@ -98,3 +98,15 @@ function init() {
     "use strict";
     console.log("initialize page");
 }
+
+function listItemClicked(element) {
+    // for iOS app only
+    if (platformId == 'ios') {
+        Array.prototype.filter.call(document.getElementsByClassName('mdl-layout__obfuscator'), function (testElement) {
+            testElement.setAttribute("style", "visibility: hidden");
+            testElement.setAttribute("style", "background-color: rgba(0, 0, 0, 0.498039)");
+        });
+    }
+    $("#drawer").toggleClass("is-visible", false);
+    alert(element.id);
+}
