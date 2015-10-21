@@ -18,10 +18,22 @@
  */
 
 body {
-    background-color: rgb(0, 188, 212);
+    /*background-color: rgb(0, 188, 212);*/
     font-family: Roboto;
     margin-top: 0;
     overflow-y: hidden;
+}
+
+.ios-background {
+    /*background-color: rgb(0, 188, 212); /* fallback color if gradients are not supported */
+    /*background-image: -webkit-linear-gradient(top, rgb(0, 188, 212), 40px, white, 40px, white); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+    /*background-image: -moz-linear-gradient(top, rgb(0, 188, 212), 40px, white, 40px, white); /* For Firefox (3.6 to 15) */
+    /*background-image: -o-linear-gradient(top, rgb(0, 188, 212), 40px, white, 40px, white); /* For old Opera (11.1 to 12.0) */
+    /*background-image: linear-gradient(to bottom, rgb(0, 188, 212), 40px, white, 40px, white); /* Standard syntax; must be last */
+    margin: 0;
+    border-top-style: solid;
+    border-top-width: 20px;
+    border-top-color: #00BCD4;
 }
 
 .content-box {

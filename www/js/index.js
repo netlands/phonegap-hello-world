@@ -75,7 +75,8 @@ var app = {
         }
         if (cordova.platformId === 'ios') {
             platformId = "ios";
-            document.body.style.marginTop = "20px";
+            // document.body.style.marginTop = "20px";
+            document.getElementsByTagName('body')[0].className+=' ios-background';
             StatusBar.backgroundColorByHexString("#00BCD4");
         }
 
