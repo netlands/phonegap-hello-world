@@ -40,6 +40,19 @@ function handleExternalURLs() {
     }
 }
 
+function onConfirm(button) {
+    if (button == 2) { //If User selected No, then we just do nothing
+        return;
+    } else {
+        navigator.app.exitApp(); // Otherwise we quit the app.
+    }
+}
+
+/*var exitApp = false,
+    intval = setInterval(function () {
+        exitApp = false;
+    }, 1000);*/
+
 var app = {
     // Application Constructor
     initialize: function () {
@@ -68,15 +81,28 @@ var app = {
             // light: #B2EBF2, main: #00BCD4, darker: #0097A7
             StatusBar.backgroundColorByHexString("#0097A7");
 
-            // avoid reload when back-button is pressed
+            // catch back button click events
             document.addEventListener("backbutton", function (e) {
+
+                // "exit" on double click only
+                /*if (exitApp) {
+                    clearInterval(intval)
+                        (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
+                } else {
+                    exitApp = true
+                    history.back(1);
+                }*/
+
+                // Prompt the user with the choice
+                navigator.notification.confirm("Are you sure you want to exit?", onConfirm, "Confirmation", "Yes,No");
+
                 e.preventDefault();
             }, false);
         }
         if (cordova.platformId === 'ios') {
             platformId = "ios";
             // document.body.style.marginTop = "20px";
-            document.getElementsByTagName('body')[0].className+=' ios-background';
+            document.getElementsByTagName('body')[0].className += ' ios-background';
             StatusBar.backgroundColorByHexString("#00BCD4");
         }
 
