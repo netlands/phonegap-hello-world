@@ -63,7 +63,7 @@
 
                         <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris sed diam non nisi aliquet euismod. Proin ut tellus quis ex fermentum mattis. Nulla pretium vulputate sollicitudin. Vestibulum sit amet lectus tempor, vulputate nunc sit amet, egestas lectus.</p>
                         <div style="text-align: right">
-                            <a class="mdl-button mdl-js-button mdl-button--primary" onclick="createNotification()">Click Me</a>
+                            <a class="mdl-button mdl-js-button mdl-button--primary" onclick="buttonClick()">Click Me</a>
                         </div>
                     </div>
                 </div>
@@ -101,16 +101,8 @@
             }
         }
 		
-		function createNotification() {
-		cordova.plugins.notification.local.schedule({
-				id: 1,
-				title: "Title of Notification",
-				text: "Notification Text",
-				//led: "FF0000",
-				//sound: isAndroid ? 'file://sound.mp3' : 'file://beep.caf',
-				//icon: "http://sciactive.com/pnotify/includes/github-icon.png",
-				//data: { secret:key }
-			});
+		function buttonClick() {
+				alert("Hello World!");
 		}
     </script>
 </body>
