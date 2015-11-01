@@ -102,14 +102,15 @@
         }
 		
 		function createNotification() {
-		var options = {
-                body   = "My Notification Body",  // Secondary notification text
-                tag    = "uniqueTag",             // An identifier for retrieving and modifying a notification
-                //icon   = iconURI,                 // Only available on android
-                //sound  = soundURI,                // URI of a sound file to be played
-                //sticky = true                     // Prevents a user from removing a notification
-              };
-		var optionalNotification = new Notification("Hello World", options);
+		cordova.plugins.notification.local.schedule({
+				id: 1,
+				title: "Title of Notification",
+				text: "Notification Text",
+				//led: "FF0000",
+				//sound: isAndroid ? 'file://sound.mp3' : 'file://beep.caf',
+				//icon: "http://sciactive.com/pnotify/includes/github-icon.png",
+				//data: { secret:key }
+			});
 		}
     </script>
 </body>

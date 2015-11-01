@@ -90,7 +90,7 @@
         <gap:plugin name="org.apache.cordova.splashscreen" source="npm" />
         <gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
         <gap:plugin name="cordova-plugin-statusbar" source="npm" version="1.0.1" />
-		<gap:plugin name="cordova-plugin-service-worker-notifications" source="npm" />
+		<gap:plugin name="de.appplant.cordova.plugin.local-notification" source="npm" />
 		
     <!-- Third party plugins -->
 
