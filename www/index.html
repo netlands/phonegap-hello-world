@@ -63,7 +63,7 @@
 
                         <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris sed diam non nisi aliquet euismod. Proin ut tellus quis ex fermentum mattis. Nulla pretium vulputate sollicitudin. Vestibulum sit amet lectus tempor, vulputate nunc sit amet, egestas lectus.</p>
                         <div style="text-align: right">
-                            <a class="mdl-button mdl-js-button mdl-button--primary" onclick="alert('Hello!')">Click Me</a>
+                            <a class="mdl-button mdl-js-button mdl-button--primary" onclick="createNotification()">Click Me</a>
                         </div>
                     </div>
                 </div>
@@ -100,6 +100,17 @@
                 window.open(url);
             }
         }
+		
+		function createNotification() {
+		var options = {
+                body   = "My Notification Body",  // Secondary notification text
+                tag    = "uniqueTag",             // An identifier for retrieving and modifying a notification
+                //icon   = iconURI,                 // Only available on android
+                //sound  = soundURI,                // URI of a sound file to be played
+                //sticky = true                     // Prevents a user from removing a notification
+              };
+		var optionalNotification = new Notification("Hello World", options);
+		}
     </script>
 </body>
 
