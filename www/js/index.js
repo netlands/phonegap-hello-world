@@ -115,6 +115,14 @@ var app = {
 
         handleExternalURLs();
 
+		// Check if we have data
+		console.log(cordova.file.applicationDirectory);	
+		window.resolveLocalFileSystemURL(cordova.file.applicationDirectory, function(f) {
+			console.dir(f);
+		}, fail);
+
+		//This alias is a read-only pointer to data.txt
+		window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/data.txt", gotFile, fail);
     }
 };
 
@@ -136,4 +144,23 @@ function listItemClicked(element) {
     }
     $("#drawer").toggleClass("is-visible", false);
     alert(element.id);
+}
+
+// File system helpers
+
+function fail(e) {
+	alert("FileSystem Error");
+}
+
+function gotFile(fileEntry) {
+
+	fileEntry.file(function(file) {
+		var reader = new FileReader();
+
+		reader.onloadend = function(e) {
+			alert("Found: "+this.result);
+		}
+
+		reader.readAsText(file);
+	});	
 }
