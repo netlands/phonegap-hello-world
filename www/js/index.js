@@ -124,7 +124,7 @@ var app = {
 				writeToFile("hello world!");			
 			});
 		});		
-		alert("yay!");
+		alert(cordova.file.dataDirectory);
 		readFromFile();
 		alert("YAY!");
     }

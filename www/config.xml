@@ -69,6 +69,13 @@
 
     <preference name="phonegap-version" value="cli-5.2.0" />
 
+	<!-- file writer related -->
+	<!-- location: cordova.file.dataDirectory -->
+	<preference name="AndroidPersistentFileLocation" value="Internal" />
+	<preference name="iosPersistentFileLocation" value="Library" />
+	<!-- ios specific -->
+	<preference name="BackupWebStorage" value="none" />
+	
     <!-- Plugins -->
 
     <!-- Core plugins -->
