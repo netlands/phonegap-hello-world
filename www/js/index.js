@@ -122,9 +122,9 @@ var app = {
 				writeToFile("hello world!");			
 			});
 		});		
-		
+		alert("yay!");
 		readFromFile();
-		
+		alert("YAY!");
     }
 };
 
@@ -159,6 +159,7 @@ function writeToFile(str) {
 		
 		var blob = new Blob([log], {type:'text/plain'});
 		fileWriter.write(blob);
+		alert
 	}, fail);
 }
 
