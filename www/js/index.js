@@ -18,6 +18,8 @@
  */
 var platformId = "browser";
 
+var fileObj;
+
 function handleExternalURLs() {
     "use strict";
     // Handle click events for all external URLs
