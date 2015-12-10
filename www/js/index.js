@@ -115,14 +115,15 @@ var app = {
 
         handleExternalURLs();
 
-		// Check if we have data
-		console.log(cordova.file.applicationDirectory);	
-		window.resolveLocalFileSystemURL(cordova.file.applicationDirectory, function(f) {
-			console.dir(f);
-		}, fail);
-
-		//This alias is a read-only pointer to data.txt
-		window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/data.txt", gotFile, fail);
+		// Check for data
+		window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dir) {
+			dir.getFile("data.txt", {create:true}, function(file) {
+				fileObj = file;
+				writeToFile("hello world!");			
+			});
+		});		
+		
+		
     }
 };
 
@@ -148,19 +149,27 @@ function listItemClicked(element) {
 
 // File system helpers
 
-function fail(e) {
-	alert("FileSystem Error");
+function writeToFile(str) {
+	if(!fileObj) return;
+	var log = str + "\n";
+	fileObj.createWriter(function(fileWriter) {
+		
+		fileWriter.seek(fileWriter.length);
+		
+		var blob = new Blob([log], {type:'text/plain'});
+		fileWriter.write(blob);
+	}, fail);
 }
 
-function gotFile(fileEntry) {
-
-	fileEntry.file(function(file) {
+function readFromFile() {
+	fileObj.file(function(file) {
 		var reader = new FileReader();
 
 		reader.onloadend = function(e) {
-			alert("Found: "+this.result);
-		}
+			alert(this.result);
+		};
 
 		reader.readAsText(file);
-	});	
+	}, fail);
+
 }
