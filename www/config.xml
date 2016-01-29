@@ -94,9 +94,9 @@
         <!-- gap:plugin name="org.apache.cordova.camera" source="npm" /-->
         <!--gap:plugin name="org.apache.cordova.contacts" source="npm" /-->
         <!--gap:plugin name="org.apache.cordova.media" source="npm" /-->
-        <gap:plugin name="org.apache.cordova.splashscreen" source="npm" />
-        <gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
         <gap:plugin name="cordova-plugin-statusbar" source="npm" version="1.0.1" />
+        <gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
+
 		
     <!-- Third party plugins -->
 
@@ -130,7 +130,6 @@
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
 
 
-	
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     <string>100</string>
     </gap:config-file>
@@ -151,7 +150,7 @@
     <access origin="*" />
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
     <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
-    <plugin name="cordova-plugin-whitelist" version="1" />
+    <!-- plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" /-->
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

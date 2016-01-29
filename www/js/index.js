@@ -18,8 +18,6 @@
  */
 var platformId = "browser";
 
-var fileObj;
-
 function handleExternalURLs() {
     "use strict";
     // Handle click events for all external URLs
@@ -117,16 +115,6 @@ var app = {
 
         handleExternalURLs();
 
-		// Data file related
-		window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dir) {
-			dir.getFile("data.txt", {create:true}, function(file) {
-				fileObj = file;
-				writeToFile("hello world!");			
-			});
-		});		
-		alert(cordova.file.dataDirectory);
-		readFromFile();
-		alert("YAY!");
     }
 };
 
@@ -150,46 +138,3 @@ function listItemClicked(element) {
     alert(element.id);
 }
 
-// File system helpers
-
-function writeToFile(str) {
-	if(!fileObj) return;
-	var log = str + "\n";
-	fileObj.createWriter(function(fileWriter) {
-		
-		fileWriter.seek(fileWriter.length);
-		
-		var blob = new Blob([log], {type:'text/plain'});
-		fileWriter.write(blob);
-		alert
-	}, fail);
-}
-
-function readFromFile() {
-	fileObj.file(function(file) {
-		var reader = new FileReader();
-
-		reader.onloadend = function(e) {
-			alert(this.result);
-		};
-
-		reader.readAsText(file);
-	}, fail);
-
-}
-
-function fail(error) {
-    alert("Error: " + error.code);
-}
-
-function removefile(filename){
-    fileSystem.root.getFile(filename, {create: false, exclusive: false}, gotRemoveFileEntry, fail);
-}
-
-function success(entry) {
-    alert("File deleted");
-}
-
-function gotRemoveFileEntry(fileEntry){
-    fileEntry.remove(success, fail);
-}
