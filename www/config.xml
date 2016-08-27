@@ -79,7 +79,7 @@
     <!-- Plugins -->
 
     <!-- Core plugins -->
-        <gap:plugin name="org.apache.cordova.battery-status" source="npm" version="0.2.12" />
+        <gap:plugin name="org.apache.cordova.battery-status" source="npm" />
         <gap:plugin name="org.apache.cordova.console" source="npm" version="0.2.13" />
         <gap:plugin name="org.apache.cordova.device" source="npm" version="0.3.0" />
         <gap:plugin name="org.apache.cordova.device-motion" source="npm" version="0.2.11" />
