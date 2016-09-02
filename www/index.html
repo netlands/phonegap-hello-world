@@ -17,6 +17,21 @@
     <style>
 
     </style>
+    <script type="text/javascript">
+        var insomnia = false;
+
+        function toggleKeepAwake() {
+            if (insomnia == true) {
+                insomnia = false;
+                window.plugins.insomnia.allowSleepAgain();
+                document.getElementById("sleep_checkbox").innerHTML = "check_box_outline_blank";
+            } else {
+                insomnia = true;
+                window.plugins.insomnia.keepAwake();
+                document.getElementById("sleep_checkbox").innerHTML = "check_box";
+            }
+        }
+    </script>
 </head>
 
 <body onload="init()">
@@ -37,6 +52,7 @@
 
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
                         <li class="mdl-menu__item" onClick="getUpdate()"><i class="material-icons menu-icon">file_download</i> Download Update</li>
+                        <li class="mdl-menu__item" onClick="toggleKeepAwake()"><i id="sleep_checkbox" class="material-icons menu-icon">check_box_outline_blank</i> Keep Awake</li>
                         <li class="mdl-menu__item" onClick="location.reload()"><i class="material-icons menu-icon">exit_to_app</i> Logout</li>
                         <li disabled class="mdl-menu__item" onClick="navigator.app.exitApp()"><i class="material-icons menu-icon">power_settings_new</i> Exit</li>
                     </ul>
@@ -100,10 +116,10 @@
                 window.open(url);
             }
         }
-		
-		function buttonClick() {
-				alert("Hello World!");
-		}
+
+        function buttonClick() {
+            alert("Hello World!");
+        }
     </script>
 </body>
 
